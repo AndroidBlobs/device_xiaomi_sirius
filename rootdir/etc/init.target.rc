@@ -57,6 +57,7 @@ on fs
     mkdir /persist/wlan_bt 0700 system system
     mkdir /dev/logfs 0771 system system
     mkdir /mnt/vendor/persist/stability 0755 system system
+    mkdir /mnt/vendor/persist/misys 0755 system system
     #+ add for watermark
     mkdir /mnt/vendor/persist/camera 0777 root root
     chown system system /dev/tiload_node
@@ -293,6 +294,11 @@ service cdsprpcd /vendor/bin/cdsprpcd
    class main
    user system
    group system
+
+service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
 
 #service audiod /vendor/bin/audiod
 #   class late_start
@@ -597,6 +603,7 @@ on post-fs-data
     restorecon /sys/module/migt/parameters/migt_ms
     chmod 0777 /sys/module/migt/parameters/migt_thresh
     restorecon /sys/module/migt/parameters/migt_thresh
+    setprop persist.sys.sf.color_saturation 1.0
 
 on property:vendor.audio.pa.ftcupdate=0
     start ftc_update

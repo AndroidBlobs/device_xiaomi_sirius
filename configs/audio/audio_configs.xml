@@ -107,7 +107,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         <!-- Common configs between APM and AHAL -->
         <flag name="afe_proxy_enabled" value="true" />
-        <flag name="compress_voip_enabled" value="false" />
+        <flag name="compress_voip_enabled" value="true" />
         <flag name="fm_power_opt" value="true" />
         <flag name="record_play_concurrency" value="false" />
 </configs>
